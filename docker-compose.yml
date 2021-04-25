@@ -3,7 +3,7 @@ version: "3.7"
 services:
   app:
     image: node:12-alpine
-    command: sh -c "yarn install && yarn run dev"
+    command: sh -c "cp app/package.json app/yarn.lock . && yarn install && cp -r app/spec app/src . && yarn run dev"
     ports:
       - 3000:3000
     working_dir: /app
